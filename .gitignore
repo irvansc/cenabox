@@ -36,3 +36,13 @@ coverage
 
 # Vitest
 __screenshots__/
+# Vercel
+.vercel
+.output
+
+# System Files (Windows/Mac)
+Thumbs.db
+Desktop.ini
+
+# Supabase (Jika pakai CLI nanti)
+supabase/.temp
