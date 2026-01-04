@@ -1,0 +1,445 @@
+DATA API DRAMABOX ENDPOINT .
+-H "Authorization: c79f16fbdc6dd94c3424dc52c846bc62b65c4ab6ec03c885f803cf43f118a4d5"
+
+1.  Mengambil daftar drama rekomendasi utama.
+  curl -X GET "https://sapimu.au/dramabox/api/foryou/1?lang=in" 
+  -H "Authorization: Bearer YOUR_TOKEN"
+
+CONTOH RESPONSE :
+{
+  "success": true,
+  "data": {
+    "list": [
+      {
+        "bookId": "42000003108",
+        "bookName": "Bukan Lagi Milikmu (Sulih Suara)",
+        "introduction": "Eria, presiden cantik dari Grup Ardita, selalu sangat mencintai suaminya, Nevan. Namun Nevan menghambur-hamburkan uang Eria, menguras darah Eria, dan bahkan berselingkuh dengan Ayla, kekasih masa lalu yang kembali dari luar negeri. Dia berkali-kali menekan Eria demi Ayla dan putranya, sampai saat Eria meninggal karena sakit, barulah Eria menyadari bahwa dia telah mencintai orang yang salah. Hidup kembali, Eria bersumpah akan mengambil kembali semua yang telah dia berikan.",
+        "cover": "https://hwztchapter.dramaboxdb.com/data/cppartner/4x2/42x0/420x0/42000003108/42000003108.jpg?t=1767146138846",
+        "chapterCount": 86,
+        "playCount": "107K",
+        "tags": [
+          "Terlahir Kembali",
+          "Balas Dendam",
+          "Kekuatan Khusus",
+          "Wanita Karier",
+          "Modern",
+          "Wanita Kuat"
+        ],
+        "tagDetails": [],
+        "corner": {
+          "cornerType": 2,
+          "name": "Terbaru",
+          "color": "#4D65ED"
+        },
+        "rank": {
+          "rankType": 3,
+          "hotCode": "6.7K",
+          "recCopy": "Terbaru TOP 9",
+          "sort": 9
+        },
+        "source": "foryou",
+        "lang": "in",
+        "timestamp": 1767258886425
+      },
+      
+    ],
+    "reserveList": [],
+    "isMore": true,
+    "total": 50
+  },
+  "meta": {
+    "source": "cache"
+  }
+}
+
+2. Daftar drama yang baru saja dirilis.
+curl -X GET "https://sapimu.au/dramabox/api/new/1?lang=in&pageSize=10"
+-H "Authorization: Bearer YOUR_TOKEN"
+
+CONTOH RESPONSE :
+{
+  "success": true,
+  "data": {
+    "list": [
+      {
+        "bookId": "42000003108",
+        "bookName": "Bukan Lagi Milikmu (Sulih Suara)",
+        "introduction": "Eria, presiden cantik dari Grup Ardita, selalu sangat mencintai suaminya, Nevan. Namun Nevan menghambur-hamburkan uang Eria, menguras darah Eria, dan bahkan berselingkuh dengan Ayla, kekasih masa lalu yang kembali dari luar negeri. Dia berkali-kali menekan Eria demi Ayla dan putranya, sampai saat Eria meninggal karena sakit, barulah Eria menyadari bahwa dia telah mencintai orang yang salah. Hidup kembali, Eria bersumpah akan mengambil kembali semua yang telah dia berikan.",
+        "cover": "https://hwztchapter.dramaboxdb.com/data/cppartner/4x2/42x0/420x0/42000003108/42000003108.jpg?t=1767146138846",
+        "chapterCount": 86,
+        "playCount": "293K",
+        "tags": [
+          "Terlahir Kembali",
+          "Balas Dendam",
+          "Kekuatan Khusus",
+          "Wanita Karier",
+          "Modern",
+          "Wanita Kuat"
+        ],
+        "tagDetails": [],
+        "corner": {
+          "cornerType": 2,
+          "name": "Terbaru",
+          "color": "#4D65ED"
+        },
+        "source": "new",
+        "lang": "in",
+        "timestamp": 1767396856763
+      },
+   
+    ],
+    "isMore": true,
+    "total": 10
+  },
+  "meta": {
+    "source": "cache"
+  }
+}
+
+3.Daftar drama paling populer saat ini.
+curl -X GET "https://sapimu.au/dramabox/api/rank/1?lang=in" 
+-H "Authorization: Bearer YOUR_TOKEN"
+
+CONTOH RESPONSE :
+{
+  "success": true,
+  "data": {
+    "list": [
+      {
+        "bookId": "42000002804",
+        "bookName": "Awas！Sang Naga Kembali (Sulih Suara) ",
+        "introduction": "Tiga tahun lalu, Gio Farel masuk penjara untuk menggantikan kakaknya. Di penjara, Gio banyak disiksa dan dihina, hingga akhirnya diselamatkan oleh Raja Obat. Gio pun belajar ilmu pengobatan yang hebat. Setelah bebas, Gio perlahan-lahan mengungkap rahasia besar tentang asal-usulnya.",
+        "cover": "https://hwztchapter.dramaboxdb.com/data/cppartner/4x2/42x0/420x0/42000002804/42000002804.jpg?t=1766717390976",
+        "chapterCount": 80,
+        "playCount": "3.2M",
+        "tags": [
+          "Serangan Balik",
+          "Pembalikan Identitas",
+          "Balas Dendam",
+          "Bangkitnya Orang Biasa",
+          "Kekuatan Khusus",
+          "Modern"
+        ],
+        "tagDetails": [],
+        "corner": null,
+        "source": "rank",
+        "lang": "in",
+        "timestamp": 1767343121568
+      },
+    
+    ]
+  },
+  "meta": {
+    "source": "cache"
+  }
+}
+
+
+4. Filter drama berdasarkan Genre/Kategori. 
+curl -X GET "https://sapimu.au/dramabox/api/classify?lang=in&pageNo=1&genre=1357&sort=1" \
+-H "Authorization: Bearer YOUR_TOKEN"
+
+CONTOH RESPONSE :
+{
+  "success": true,
+  "data": {
+    "list": [
+      {
+        "bookId": "41000119880",
+        "bookName": "Kupasrahkan Diriku Pada Cintamu",
+        "introduction": "Saat datang menemui kekasihnya, Olivia secara tak sengaja bertemu dengan Ellis, seorang CEO miliarder paruh baya yang sekaligus ayah kekasihnya. Perkenalan Olivia dengan Ellis menuntun Olivia yang polos memasuki dunia percintaan yang berbeda, yang penuh hasrat dan dominasi...  ",
+        "cover": "https://hwztchapter.dramaboxdb.com/data/cppartner/4x1/41x0/410x0/41000119880/41000119880.jpg?t=1765787577897",
+        "chapterCount": 54,
+        "playCount": "46.3M",
+        "tags": [
+          "Perbedaan Usia",
+          "Cinta Terlarang",
+          "CEO",
+          "Modern",
+          "Romansa",
+          "BG"
+        ],
+        "tagDetails": [],
+        "corner": {
+          "cornerType": 6,
+          "name": "Terpopuler",
+          "color": "#FF2965"
+        },
+        "source": "classify",
+        "lang": "in",
+        "timestamp": 1767190999018
+      },
+      
+    ],
+    "isMore": true,
+    "total": 10
+  },
+  "meta": {
+    "source": "cache"
+  }
+}
+
+5. Mencari drama berdasarkan kata kunci.
+curl -X GET "https://sapimu.au/dramabox/api/search/ceo/1?lang=in" \
+-H "Authorization: Bearer YOUR_TOKEN"
+
+CONTOH RESPONSE :
+{
+  "success": true,
+  "data": {
+    "list": [
+      {
+        "bookId": "41000113177",
+        "bookName": "Pesona Istri Manis Sang CEO (Sulih Suara)",
+        "introduction": "",
+        "cover": "https://hwztchapter.dramaboxdb.com/data/cppartner/4x1/41x0/410x0/41000113177/41000113177.jpg?t=1741316061969&image_process=resize,h_300",
+        "chapterCount": 0,
+        "playCount": "62M",
+        "tags": [],
+        "tagDetails": [],
+        "source": "search",
+        "lang": "in",
+        "timestamp": 1767429557502
+      },
+    ]
+  },
+  "meta": {
+    "source": "worker"
+  }
+}
+
+6. Auto-complete saran kata kunci.
+curl -X GET "https://sapimu.au/dramabox/api/suggest/cinta?lang=in" \
+-H "Authorization: Bearer YOUR_TOKEN"
+
+CONTOH RESPONSE :
+{
+  "success": true,
+  "data": {
+    "suggestList": [
+      {
+        "bookId": "41000117548",
+        "bookName": "Cinta Beracun",
+        "introduction": "Dengan hati yang penuh luka, Susan menahan rasa sedihnya dengan berfoya-foya dan menggoda semua pria di kalangan orang kaya. Sampai suatu saat, dirinya bertemu dengan seorang pengawal yang sangat tampan. Susan langsung mengejar pria itu dan menggodanya selama bertahun-tahun. Sampai suatu hari, dia mendapati bahwa pengawal tampan itu ternyata hanya mendekatinya karena jatuh cinta dengan adik tirinya, yang merupakan sumber dari segala penderitaannya sejak kecil.",
+        "cover": "https://hwztchapter.dramaboxdb.com/data/cppartner/4x1/41x0/410x0/41000117548/41000117548.jpg?t=1750747674745&image_process=resize,h_300",
+        "chapterCount": 0,
+        "playCount": "0",
+        "tags": [],
+        "tagDetails": [],
+        "corner": {
+          "cornerType": 4,
+          "name": "Anggota Saja",
+          "color": ""
+        },
+        "source": "suggest",
+        "lang": "in",
+        "timestamp": 1767429594240
+      },
+    ]
+  },
+  "meta": {
+    "source": "worker"
+  }
+}
+7. Mengambil daftar seluruh episode.
+curl -X GET "https://sapimu.au/dramabox/api/chapters/42000000722?lang=in" \
+-H "Authorization: Bearer YOUR_TOKEN"
+
+CONTOH RESPONSE :
+{
+  "success": true,
+  "data": {
+    "chapterList": [
+      {
+        "chapterId": "700046385",
+        "chapterIndex": 0,
+        "isCharge": 0,
+        "isPay": 0,
+        "chapterSizeVoList": [
+          {
+            "quality": 720,
+            "size": 43151
+          },
+          {
+            "quality": 1080,
+            "size": 64726
+          },
+          {
+            "quality": 540,
+            "size": 32363
+          },
+          {
+            "quality": 360,
+            "size": 21575
+          },
+          {
+            "quality": 144,
+            "size": 8630
+          }
+        ]
+      },
+    ]
+  },
+  "meta": {
+    "source": "cache"
+  }
+}
+
+8. Mengambil detail lengkap seluruh episode. 
+curl -X GET "https://sapimu.au/dramabox/api/chapters/detail/42000000722?lang=in" \
+-H "Authorization: Bearer YOUR_TOKEN"
+
+CONTOH RESPONSE :
+{
+  "success": true,
+  "data": {
+    "bookId": "42000000722",
+    "bookName": "Bunga Mekar dari Air Mata (Sulih Suara)",
+    "introduction": "Tujuh tahun lalu, Elara melahirkan anak kembar untuk Keluarga Clarke, namun darahnya diambil untuk menyelamatkan Nathan, cucu tertua mereka. Suaminya, Adrian, hanya menemukan jenazah Elara. Kini, Elara yang kehilangan ingatan dan bisu, membesarkan putrinya, Gia, sebagai pemulung. Takdir mempertemukan Gia dengan Nathan. Sebuah karangan \"Ibuku\" memicu konflik, dan Gia memohon pada Adrian, \"Paman, selamatkan ibuku.\"",
+    "cover": "https://hwztchapter.dramaboxdb.com/data/cppartner/4x2/42x0/420x0/42000000722/42000000722.jpg?t=1764147368665",
+    "episodeCount": 60,
+    "playCount": "10.4M",
+    "corner": {
+      "name": "Eksklusif",
+      "color": "#4D65ED",
+      "cornerType": 7
+    },
+    "rank": null,
+    "tags": [
+      "Amnesia",
+      "Keluarga",
+      "Anak Hilang",
+      "Modern",
+      "Wanita Kuat",
+      "Ibu Tunggal"
+    ],
+    "tagDetails": [],
+    "lang": "in"
+  },
+  "meta": {
+    "source": "database"
+  }
+}
+
+9. Link streaming video episode tertentu. 
+
+curl -X GET "https://sapimu.au/dramabox/api/watch/42000000722/0?lang=in&source=search_result" \
+-H "Authorization: Bearer YOUR_TOKEN"
+
+CONTOH RESPONSE :
+{
+  "success": true,
+  "data": {
+    "bookId": "42000000722",
+    "chapterIndex": 0,
+    "videoUrl": "https://hwztvideo.dramaboxdb.com/58/2x2/22x7/227x0/22700000024/700046385_1/700046385.1080p.wz.g264.mp4?Expires=1767513600&Signature=iJEcgVKXCOJXcj7fjywT21wYyxwsNc-svia1ru4zj-fjzpAx6U9q7mPR8Nx9gZMt~mUDdZ7dlFM6q6LftKBMxBgoSxcOC1M2vDtblZ0V7oz31RZIZlvvGaW82GHrbhRwLvjKGakRReUt9LcPg6jHsmuptvKt50Ozw8eYWz5XFilL4zgMpq6kCcg7Qx8SFX3ih5p-p7MYKVjuTw3HqOtd8mgC6CZdAy6eXucZl8seoZpRnnJq3UOM3Q67jVyup8E2baVCgX428OKF5rVRLiyDAVSPNDQT8hc30FYALs6hZQrqKT8vuKn2iUZBjVW9I0WNZPTE3Qua0hS-WxeIowV6GQ__&Key-Pair-Id=K3HA2TLE2QH99V",
+    "qualities": [
+      {
+        "quality": 1080,
+        "videoPath": "https://hwztvideo.dramaboxdb.com/58/2x2/22x7/227x0/22700000024/700046385_1/700046385.1080p.wz.g264.mp4?Expires=1767513600&Signature=iJEcgVKXCOJXcj7fjywT21wYyxwsNc-svia1ru4zj-fjzpAx6U9q7mPR8Nx9gZMt~mUDdZ7dlFM6q6LftKBMxBgoSxcOC1M2vDtblZ0V7oz31RZIZlvvGaW82GHrbhRwLvjKGakRReUt9LcPg6jHsmuptvKt50Ozw8eYWz5XFilL4zgMpq6kCcg7Qx8SFX3ih5p-p7MYKVjuTw3HqOtd8mgC6CZdAy6eXucZl8seoZpRnnJq3UOM3Q67jVyup8E2baVCgX428OKF5rVRLiyDAVSPNDQT8hc30FYALs6hZQrqKT8vuKn2iUZBjVW9I0WNZPTE3Qua0hS-WxeIowV6GQ__&Key-Pair-Id=K3HA2TLE2QH99V",
+        "isDefault": 0,
+        "isEntry": 0,
+        "isVipEquity": 1
+      },
+      {
+        "quality": 720,
+        "videoPath": "https://hwztvideo.dramaboxdb.com/58/2x2/22x7/227x0/22700000024/700046385_1/700046385.720p.narrowv3.mp4?Expires=1767513600&Signature=EJgtxUuTGdTuVSzy~VYXVRF5a2Dv4q~NHpeBTkhsYkr5sLQKtwiuujqrEZ-d7wf2YsFclWs1a5CU7q8YSH7lz7hRdBMwVgGL~BvOAi7sdpL23Bn69dLc2fvKkilHharpVHFuLzpA7hvP2Br2o5moN4CPvAZfpevG4ulJ3jE2nQoawD3jKckRPOIHHMiKZSMglh4N45GE11DENBLuzE1tOJ-QbaaLUw7Ov1m5bUCvu21gBeNHlS0V7YxRd7vSDVqM1zTgbUDuk0xfe6kni~76ZHvRhqYUx2bme9LAxI4e9sADhrjgxJQKNuDrd~yAb9EWdcPDuGefIu~tiCUhlGUE~A__&Key-Pair-Id=K3HA2TLE2QH99V",
+        "isDefault": 1,
+        "isEntry": 0,
+        "isVipEquity": 0
+      },
+      {
+        "quality": 540,
+        "videoPath": "https://hwztvideo.dramaboxdb.com/58/2x2/22x7/227x0/22700000024/700046385_1/700046385.540p.narrowv2.mp4?Expires=1767513600&Signature=uvRuM81iBWyQz5ryLn8KuqMfLDPDAagYJh820DasBooM-nRQFY1mHKjNnV4q2cunhVAC0GIPi4KhIZWl1xDJIO387hBeQaOdql~6kgbC0~YEIXm3meOj9QI0hUh4wO-NBYinORH92yfDIRUJhzJxt0q2jvPPfj7z5AN-C7mmFDSxdcfadBVj~87rwxAqAnTyrMbdLqOAxRd4hbCaIvbxS93XmMusyiUB~3aV2s6DjPhRmeNgTjrCrRl1UPO1kLxG7OByWzvyMiyepb4cheMcDumP9aw7oq54kNd-6nIVELiwVKx9V7MiX75QMSqFTTmDaJwCrHYgsiOeq1wx6gyuhA__&Key-Pair-Id=K3HA2TLE2QH99V",
+        "isDefault": 0,
+        "isEntry": 0,
+        "isVipEquity": 0
+      },
+      {
+        "quality": 360,
+        "videoPath": "https://hwztvideo.dramaboxdb.com/58/2x2/22x7/227x0/22700000024/700046385_1/700046385.360p.mp4?Expires=1767513600&Signature=w3c4gs1dEO29uFPnwoRymNkiRb3ZFparwLv6OOpa-AxsLZv0acwzb7uOrBBKAdYBP8FnQE~eLU3n2UOgXbf8Jg1GJzZos5AC5funHuK6EOdO2Y8dGoHvEbu52mhRrC~Nf8RFQ-BJ9lf~HrANtpiueweDz8fkGrrLpzKQ6VY1qMcRIDzz49g4z72Xm7utSlpI58--l2ywZOvRCPEtzjHQVP14zol7R5MhO4oH2RBKMrow0iSiUm3jzW7lIssTr9VNVEMo5VSRpectJLkRIJcJn~HGME7EZPxF3-OBbNobGkKdAdUkaMK0QOmzH~t66tggoK39rlFzHMjDYS4tndcQzQ__&Key-Pair-Id=K3HA2TLE2QH99V",
+        "isDefault": 0,
+        "isEntry": 0,
+        "isVipEquity": 0
+      },
+      {
+        "quality": 144,
+        "videoPath": "https://hwztvideo.dramaboxdb.com/58/2x2/22x7/227x0/22700000024/700046385_1/700046385.144p.mp4?Expires=1767513600&Signature=troVN8z1NpuksHgHjQf5b2nJFtCtXYOlEYwXAsrEwaDh~SCcpchLBznVvovVG3YHw5rA3lrrZVy-LBfBeZ9Cdlhz7bQL41Q9GacXEVcT9eG6kzuLTDMc3VzmRBi-DuHitvwT-7JUR4GH6glHsmy57izUErsZu5BEfs17G3PMXh4O742cCktNFeA4qJFaT19f2JTj41RlbiG8mJT3Mxc7GlK1-PW7Pp2BmaBZGE28NMG1FRe7cXm5mCv7msY-R1ma7ccfRv22sIZM42Iqyrc1RKq7K3E9jBg-mL0g7uMH0lQRagZckIAl4YKXNeM9ZMAnT~MTCJXlS~uEmNhJr3Mz6w__&Key-Pair-Id=K3HA2TLE2QH99V",
+        "isDefault": 0,
+        "isEntry": 0,
+        "isVipEquity": 0
+      }
+    ],
+    "cover": "https://hwztvideo.dramaboxdb.com/58/2x2/22x7/227x0/22700000024/700046385_1/700046385.mp4.jpg",
+    "unlockedNow": false,
+    "originalStatus": {
+      "isCharge": 0
+    }
+  },
+  "meta": {
+    "latency": 255,
+    "source": "worker"
+  }
+}
+
+10. Alternatif streaming dengan JSON body.
+curl -X POST "https://sapimu.au/dramabox/api/watch/player?lang=in" \
+-H "Authorization: Bearer YOUR_TOKEN" \
+-H "Content-Type: application/json" \
+-d '{"bookId":"42000000722","chapterIndex":10,"lang":"in"}'
+
+{
+  "success": true,
+  "data": {
+    "bookId": "42000000722",
+    "chapterIndex": 10,
+    "videoUrl": "https://hwztvideo.dramaboxdb.com/59/2x2/22x7/227x0/22700000024/700046395_1/700046395.1080p.wz.g264.mp4?Expires=1767456000&Signature=WZwgbUEqhbrqLzxW8nHkrdP156Pcl3gMFuis12LwSrhWRctUTXlj6zZX8I~KU5OSyZu7G2OPaSEefvsA0EFbz~PSf0Sj7Lzk7G-7CeH7P6ZDUhzfWOZSGyIxBA93X-h-E8M4Oqg5QTtytlnL~YSPMwtjzaQWMZzGeF9EzScctG~BGgBNhX8xlQctUQeByRB6NdglVEDNgrgwqoVXzPD4a6fthqqTiXk27giGS92cSgYLYE64NmGZGqncRlf8LB1ma1i8cbOWbkSF2R~QmnA0wRK2SLAt3bxvYmkcaOpa2WZCw8S8uVJ0JNLeeQ3NZH-Kb4WXXTl3xLos4VXFChM~1w__&Key-Pair-Id=K3HA2TLE2QH99V",
+    "qualities": [
+      {
+        "quality": 1080,
+        "videoPath": "https://hwztvideo.dramaboxdb.com/59/2x2/22x7/227x0/22700000024/700046395_1/700046395.1080p.wz.g264.mp4?Expires=1767456000&Signature=WZwgbUEqhbrqLzxW8nHkrdP156Pcl3gMFuis12LwSrhWRctUTXlj6zZX8I~KU5OSyZu7G2OPaSEefvsA0EFbz~PSf0Sj7Lzk7G-7CeH7P6ZDUhzfWOZSGyIxBA93X-h-E8M4Oqg5QTtytlnL~YSPMwtjzaQWMZzGeF9EzScctG~BGgBNhX8xlQctUQeByRB6NdglVEDNgrgwqoVXzPD4a6fthqqTiXk27giGS92cSgYLYE64NmGZGqncRlf8LB1ma1i8cbOWbkSF2R~QmnA0wRK2SLAt3bxvYmkcaOpa2WZCw8S8uVJ0JNLeeQ3NZH-Kb4WXXTl3xLos4VXFChM~1w__&Key-Pair-Id=K3HA2TLE2QH99V",
+        "isDefault": 0,
+        "isEntry": 0,
+        "isVipEquity": 1
+      },
+      {
+        "quality": 720,
+        "videoPath": "https://hwztvideo.dramaboxdb.com/59/2x2/22x7/227x0/22700000024/700046395_1/700046395.720p.narrowv3.mp4?Expires=1767456000&Signature=bXkEcocS6MtBifGBWd~hudfFE98nCmOjbK2X6WN0F2s9ZrAWp9g8aylsLiOS35kdiu7ElM3eqIYFtnLmyGJZNnN-28a46wbHdpygPN~n1Lo2SvNbG3RHPC~R0sd~UIlRbU5JoGZbvZ9Edl2L0ue3pkBX8wza~-5LC1kAl9iSKXgNCGJYGlwKl-CNLGV6iwnKkF2Tu1jiIBkwEamo5HrYgir8QgSTYnPLUgAs6DyqpjQco~UjcoWVcB5lmJL-5C2dnNPOSfmVr5k2J4s2dplo7rVUFAydrAVEWe~VDZ2VRS1ARY0v5IyKTgTFoWXLLdmb-FvU~ulDVnRQgxCyAnJTgA__&Key-Pair-Id=K3HA2TLE2QH99V",
+        "isDefault": 1,
+        "isEntry": 0,
+        "isVipEquity": 0
+      },
+      {
+        "quality": 540,
+        "videoPath": "https://hwztvideo.dramaboxdb.com/59/2x2/22x7/227x0/22700000024/700046395_1/700046395.540p.narrowv2.mp4?Expires=1767456000&Signature=ZBJtkEeYMXt9nm1RKkLoba-if472Qd6wgR9bJnuc~WqvkmavAgol4Y3IxHr7DUuIUZvYboPRERBH0CPSeCv6NwDhQciHL6pL8ncBreKuxBe3CvmL6-e1ChyxZVTGp5eHwKkdWPVp52G44PihVL2bujDbeGKtQy8binkLa4WLpRdLGw5YB8YVH8J-ovBnB2Ef6W5VHf9xxu9KP4Kq3xhrcmvUJKxa0isCxjBUp71LEaAn7i8lkWvwIst9MdHebEmdQUXnKhMV0GM8d7gIlGl1UweTGI~Z13M2ke0WYA51aNrTPA~0oZIMSmghLplBUVV2RhcfjYtFraE6ILZKwPNs9Q__&Key-Pair-Id=K3HA2TLE2QH99V",
+        "isDefault": 0,
+        "isEntry": 0,
+        "isVipEquity": 0
+      },
+      {
+        "quality": 360,
+        "videoPath": "https://hwztvideo.dramaboxdb.com/59/2x2/22x7/227x0/22700000024/700046395_1/700046395.360p.mp4?Expires=1767456000&Signature=i3qLcE5Nhz1x7I0APSf3-roJA39ndpDL2SGJJju0NSXIF2f-2vbjXVY0tBi7sn6TRn7zTp6pJElu9~iBJ9Tum09xYL9bMT~2LsmrxQkZVqbtB6Ox55f9lpTovEXrC5EwCHKCYJ5y50V2XnVTQzjITTqNc~sQuVG54rYYu1hP7qjtfWH4zeiY3JCxuAy8rcx~VndSTzAFVb8p2oMYjBBKCsFOi6f4qU1RIFoebNNYv53sqvhcZZ0ICmcpiXxcxlFiydY~bVRVy5SuE0b2EHy1da7CXQ-iFjmP6YBW0dbdmHIjRYKknWntZcayTTEyL8XnjJhE5-rk-cHE1LeEreN27w__&Key-Pair-Id=K3HA2TLE2QH99V",
+        "isDefault": 0,
+        "isEntry": 0,
+        "isVipEquity": 0
+      },
+      {
+        "quality": 144,
+        "videoPath": "https://hwztvideo.dramaboxdb.com/59/2x2/22x7/227x0/22700000024/700046395_1/700046395.144p.mp4?Expires=1767456000&Signature=pPpmNqIrD142F2mKhwhnzM62QtKK6WgqtWQhfKOLFqmWdMqFqAYzmQXAtC3hvwDNN~NI7SJiIl3GM71vbKW3f-NWQ-LH-RE~Mo1uzUQp7npC2JlgyM5DYA313of1b1KVdoMt5p7V7qBs6zIXetaABZrJ960lV3czpdpwxjPZkVx9m3ppQOvHb15RK7z3yKmETecAFZdl85woYRrr74hJMxh34lRG1kIlc8qKO~UITKqj2TAGeXFkfjJLmKG0ihRnZDbC2Hgy-9VIpzLvE0kCkyC3sQeuiGv5daRGQFHkw0RX3yS6S1SvYp388i2Bn30Ej0oeZEglX-Isz6Ig4QWGLQ__&Key-Pair-Id=K3HA2TLE2QH99V",
+        "isDefault": 0,
+        "isEntry": 0,
+        "isVipEquity": 0
+      }
+    ],
+    "cover": "https://hwztvideo.dramaboxdb.com/59/2x2/22x7/227x0/22700000024/700046395_1/700046395.mp4.jpg",
+    "unlockedNow": false,
+    "originalStatus": {
+      "isCharge": 0
+    }
+  },
+  "meta": {
+    "latency": 0,
+    "source": "cache"
+  },
+  "source": "cache"
+}
