@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue';
-import AdScriptRenderer from './AdScriptRenderer.vue'; // IMPORT INI
+import AdScriptRenderer from './ads/AdScriptRenderer.vue'; // IMPORT INI
 
 const props = defineProps({
   data: {
@@ -37,7 +37,7 @@ const openLink = () => {
       <div class="relative w-full">
         <AdScriptRenderer :scriptCode="props.data.script_code" />
 
-        <div class="absolute top-0 right-0 bg-gray-200 text-gray-600 text-[9px] px-1">AD</div>
+        <div class="absolute top-2 right-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded">AD</div>
       </div>
     </div>
 
