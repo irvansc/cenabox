@@ -1,12 +1,14 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { X } from 'lucide-vue-next';
-import { useAdsStore } from '../../stores/ads';
+import { useAdsStore } from '../stores/ads'; // Sesuaikan path store Anda
+// Pastikan path import ini benar mengarah ke file AdScriptRenderer.vue yang baru dibuat
+import AdScriptRenderer from './ads/AdScriptRenderer.vue';
 
 const adsStore = useAdsStore();
 const isVisible = ref(true);
 
-// Ambil 1 iklan floating pertama yang aktif dari Store baru
+// Ambil 1 iklan floating pertama yang aktif dari Store
 const bannerData = computed(() => {
   const ads = adsStore.floatingAds;
   return ads && ads.length > 0 ? ads[0] : null;
@@ -30,7 +32,9 @@ const bannerData = computed(() => {
         <img :src="bannerData.image_url" class="w-full h-12 object-cover rounded" />
       </a>
 
-      <div v-else class="w-full flex justify-center items-center bg-white/5 p-1" v-html="bannerData.script_code"></div>
+      <div v-else class="w-full flex justify-center items-center bg-white/5 p-1 min-h-[50px]">
+        <AdScriptRenderer :scriptCode="bannerData.script_code" />
+      </div>
 
     </div>
   </div>
