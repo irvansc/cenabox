@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import HomeMobile from './HomeMobile.vue';
 import HomeDesktop from './HomeDesktop.vue';
-import { useHead } from '@unhead/vue/client';
+import { useHead } from '@unhead/vue';
 const isMobile = ref(true);
 
 const checkScreenSize = () => {
