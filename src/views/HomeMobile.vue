@@ -8,9 +8,9 @@ import NativeAdCard from '../components/ads/NativeAdCard.vue';
 import FloatingBanner from '../components/ads/FloatingBanner.vue';
 import {
   Play, TrendingUp, Sparkles, Grid, Star, Flame,
-  Search, ArrowLeft, X, Clock, ScanSearch
+  Search, ArrowLeft, X, ScanSearch
 } from 'lucide-vue-next';
-
+import Skeleton from '../components/ui/Skeleton.vue';
 const router = useRouter();
 const adsStore = useAdsStore();
 
@@ -185,8 +185,32 @@ onMounted(() => { fetchData('foryou'); });
     </header>
 
     <div class="mt-[110px]">
-      <div v-if="loading" class="flex justify-center py-20">
-        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-[#FF2965]"></div>
+      <div v-if="loading" class="p-4 space-y-8 overflow-hidden">
+
+        <div>
+          <div class="flex justify-between mb-3">
+            <Skeleton width="120px" height="20px" />
+            <Skeleton width="60px" height="15px" />
+          </div>
+          <div class="flex gap-3 overflow-hidden">
+            <div v-for="i in 4" :key="i" class="shrink-0">
+              <Skeleton width="100px" height="133px" className="mb-2" />
+              <Skeleton width="80px" height="10px" />
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <Skeleton width="150px" height="20px" className="mb-3" />
+          <div class="grid grid-cols-3 gap-3">
+            <div v-for="i in 6" :key="i">
+              <Skeleton width="100%" height="140px" className="mb-2" />
+              <Skeleton width="90%" height="10px" className="mb-1" />
+              <Skeleton width="60%" height="10px" />
+            </div>
+          </div>
+        </div>
+
       </div>
       <div v-else>
         <div v-if="activeTab === 'foryou'" class="flex flex-col gap-8">
@@ -227,7 +251,7 @@ onMounted(() => { fetchData('foryou'); });
                     </div>
                   </div>
                   <h3 class="text-[11px] text-gray-200 mt-1.5 line-clamp-2 leading-tight font-medium">{{ item.bookName
-                    }}</h3>
+                  }}</h3>
                 </div>
               </template>
             </div>
@@ -433,7 +457,7 @@ onMounted(() => { fetchData('foryou'); });
 
           <div v-else-if="searchResults.length > 0">
             <p class="text-xs text-gray-400 mb-4">Hasil untuk "<span class="text-white font-bold">{{ searchQuery
-            }}</span>"
+                }}</span>"
             </p>
             <div class="grid grid-cols-3 gap-3">
               <div v-for="item in searchResults" :key="item.bookId" class="relative cursor-pointer group"

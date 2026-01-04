@@ -5,6 +5,7 @@ import { supabase } from '../lib/supabase';
 import {
   LogOut, Gift, Heart, Lock, History, Crown, Bell, Mail, Loader2
 } from 'lucide-vue-next';
+import Skeleton from '../components/ui/Skeleton.vue';
 
 // --- STATE ---
 const isLoggedIn = ref(false);
@@ -84,8 +85,21 @@ onMounted(() => {
 <template>
   <div class="bg-[#0F1014] min-h-screen text-white pb-24 font-sans">
 
-    <div v-if="isLoading" class="flex h-screen items-center justify-center">
-      <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-[#FF2965]"></div>
+    <div v-if="isLoading" class="px-4 pt-10 flex flex-col items-center animate-fade-in">
+
+      <Skeleton type="circle" width="96px" height="96px" className="mb-4" />
+
+      <Skeleton width="150px" height="24px" className="mb-2" />
+      <Skeleton width="200px" height="20px" className="rounded-full" />
+
+      <div class="w-full mt-8">
+        <Skeleton width="100%" height="80px" className="rounded-2xl" />
+      </div>
+
+      <div class="w-full mt-8">
+        <Skeleton width="100%" height="56px" className="rounded-xl" />
+      </div>
+
     </div>
 
     <div v-else>

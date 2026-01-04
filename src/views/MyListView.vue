@@ -3,22 +3,29 @@ import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import BottomNav from '../components/BottomNav.vue';
 import { Trash2, SlidersHorizontal, PlayCircle, Clock } from 'lucide-vue-next';
-
+import Skeleton from '../components/ui/Skeleton.vue';
 const router = useRouter();
 const activeTab = ref('watching'); // 'watching' atau 'history'
 const historyList = ref([]);
 const isEditMode = ref(false);
+// Tambah state loading
+const loading = ref(true);
 
-// --- 1. LOAD DATA DARI LOCALSTORAGE ---
 const loadHistory = () => {
-  const stored = localStorage.getItem('cena_history');
-  if (stored) {
-    historyList.value = JSON.parse(stored);
-  } else {
-    // KOSONG (Nanti terisi otomatis saat nonton)
-    historyList.value = [];
-  }
+  loading.value = true; // Mulai loading
+
+  // Simulasi delay 500ms biar skeleton kelihatan (opsional, biar keren aja)
+  setTimeout(() => {
+    const stored = localStorage.getItem('cena_history');
+    if (stored) {
+      historyList.value = JSON.parse(stored);
+    } else {
+      historyList.value = [];
+    }
+    loading.value = false; // Selesai loading
+  }, 500);
 };
+
 
 // --- 2. HAPUS DATA ---
 const deleteItem = (index) => {
@@ -74,8 +81,18 @@ onMounted(() => {
     </div>
 
     <div class="pt-[70px] px-4">
+      <div v-if="loading" class="flex flex-col gap-4 mt-2">
+        <div v-for="i in 5" :key="i" class="flex gap-3">
+          <Skeleton width="80px" height="106px" className="shrink-0" />
 
-      <div v-if="historyList.length === 0" class="flex flex-col items-center justify-center py-32 text-gray-500">
+          <div class="flex-1 flex flex-col justify-center gap-2">
+            <Skeleton width="80%" height="16px" />
+            <Skeleton width="40%" height="12px" />
+            <Skeleton width="30%" height="12px" className="mt-2" />
+          </div>
+        </div>
+      </div>
+      <div v-else-if="historyList.length === 0" class="flex flex-col items-center justify-center py-32 text-gray-500">
         <div class="w-16 h-16 bg-gray-800/50 rounded-full flex items-center justify-center mb-4">
           <Clock size="32" class="opacity-50" />
         </div>
