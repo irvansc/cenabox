@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Larang bot masuk ke area admin & akun
+Disallow: /admin/
+Disallow: /profile
+Disallow: /mylist
+Disallow: /auth/
+
+Sitemap: https://cenabox.vercel.app/sitemap.xml

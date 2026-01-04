@@ -12,7 +12,7 @@ import {
   X, Check, Settings, Monitor, Lock, Link, Facebook, Twitter,
   ShoppingBag, Play
 } from 'lucide-vue-next';
-
+import { useHead } from '@unhead/vue';
 const route = useRoute();
 const router = useRouter();
 const adsStore = useAdsStore();
@@ -57,7 +57,30 @@ const itemsPerPage = 30;
 const showPauseAd = ref(false);
 
 // --- 2. COMPUTED PROPERTIES (LOGIC) ---
+useHead(() => ({
+  title: dramaDetail.value.bookName
+    ? `Nonton ${dramaDetail.value.bookName} Sub Indo - Eps ${chapterIndex.value + 1} | CenaBox`
+    : 'Nonton Drama Asia Sub Indo | CenaBox',
 
+  meta: [
+    {
+      name: 'description',
+      content: dramaDetail.value.introduction
+        ? dramaDetail.value.introduction.substring(0, 150) + '...'
+        : 'Nonton drama pendek, korea, china sub indo gratis di CenaBox.'
+    },
+    // Open Graph (Untuk tampilan saat link dishare di WA/FB)
+    { property: 'og:title', content: dramaDetail.value.bookName || 'CenaBox Streaming' },
+    { property: 'og:description', content: dramaDetail.value.introduction || 'Nonton Drama Gratis' },
+    { property: 'og:image', content: dramaDetail.value.cover || 'https://cenabox.vercel.app/logo.png' }, // Ganti URL logo default
+    { property: 'og:type', content: 'video.movie' },
+    { property: 'og:url', content: window.location.href },
+    // Twitter Card
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: dramaDetail.value.bookName },
+    { name: 'twitter:image', content: dramaDetail.value.cover },
+  ]
+}));
 const chunkedEpisodes = computed(() => {
   const chunks = [];
   if (!chapterList.value) return [];
@@ -92,10 +115,7 @@ const openAd = (url) => {
 };
 
 // --- 3. META TAGS & STATUS CHECK ---
-const updateMetaTags = () => {
-  if (!dramaDetail.value.bookName) return;
-  document.title = `Nonton ${dramaDetail.value.bookName} - Eps ${chapterIndex.value + 1}`;
-};
+
 
 // Cek status bookmark saat pertama kali load
 const checkBookmarkStatus = () => {
@@ -168,7 +188,6 @@ const loadDetail = async () => {
     const resDetail = await api.getDetail(bookId);
     if (resDetail.data.success) {
       dramaDetail.value = resDetail.data.data;
-      updateMetaTags();
       checkBookmarkStatus(); // Cek status awal
     }
     const resChapters = await api.getChapters(bookId);
@@ -189,7 +208,6 @@ const loadVideo = async (index) => {
     const res = await api.getStreamUrl(bookId, index);
     if (res.data.success) {
       videoUrl.value = res.data.data.videoUrl;
-      updateMetaTags();
 
       // Auto-save history saat video dimuat (manualClick = false)
       // Ini TIDAK akan mengubah status bookmark jadi pink
