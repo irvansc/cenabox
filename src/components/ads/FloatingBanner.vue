@@ -1,9 +1,9 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { X } from 'lucide-vue-next';
-import { useAdsStore } from '../stores/ads'; // Sesuaikan path store Anda
+import { useAdsStore } from '../../stores/ads'; // Sesuaikan path store Anda
 // Pastikan path import ini benar mengarah ke file AdScriptRenderer.vue yang baru dibuat
-import AdScriptRenderer from './ads/AdScriptRenderer.vue';
+import AdScriptRenderer from './AdScriptRenderer.vue';
 
 const adsStore = useAdsStore();
 const isVisible = ref(true);

@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue';
-import AdScriptRenderer from './ads/AdScriptRenderer.vue'; // IMPORT INI
+import AdScriptRenderer from './AdScriptRenderer.vue'; // IMPORT INI
 
 const props = defineProps({
   data: {
